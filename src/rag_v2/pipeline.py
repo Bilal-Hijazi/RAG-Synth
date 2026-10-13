@@ -95,12 +95,9 @@ def intgest_pipeline(parser = MarkdownElementNodeParser(num_workers=1), embed_mo
 def query(index=index, query_mode = 'hybrid', similarity_top = 5, sparse_top=5, query= ''):
 
     query_engine = index.as_query_engine(streaming=True,vector_store_query_mode=query_mode ,similarity_top_k=similarity_top, sparse_top_k=sparse_top)
-
-
-
-    
     streaming_response = query_engine.query(query)
-    streaming_response.print_response_stream()
+    streaming_response = streaming_response.get_response().response
+    return streaming_response
         
 
 

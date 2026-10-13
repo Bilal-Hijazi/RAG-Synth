@@ -19,6 +19,7 @@ dependencies = [
     "markitdown[docx]>=0.1.8",
     "numpy>=2.5.4",
     "pandas>=3.0.6",
+    "pydantic>=2.14.0",
     "python-dotenv>=1.2.4",
 ]
 
