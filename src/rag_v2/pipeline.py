@@ -104,13 +104,13 @@ def query(index=index, query_mode = 'hybrid', similarity_top = 5, sparse_top=5, 
 
 def evaluation():
 
-    retriever = index.as_retriever(vector_store_query_mode='hybrid',similarity_top_k=5, sparse_top_k=5)
+    retriever = index.as_retriever()
 
 
     with open(r'C:\dev\RAG v2\src\rag_v2\evals.json', 'r') as f:
         evals = json.load(f)
 
-    with open('results.jsonl', 'w') as h:
+    with open('results@dense2.jsonl', 'w') as h:
         for ev in evals:
             if not ev['source_docs']:          # skip negatives
                 continue
@@ -120,6 +120,7 @@ def evaluation():
             ev['correct'] = len(found) / len(ev['source_docs'])
             ev['retrieved_ids'] = sorted(retrieved_ids)
             h.write(json.dumps(ev) + "\n")
+            print(len(nodes))
 
     scored = [ev for ev in evals if ev['source_docs']]
     strict = sum(ev['correct'] == 1 for ev in scored) / len(scored)
@@ -127,7 +128,7 @@ def evaluation():
     print(f"strict hit rate: {strict:.0%} | mean source recall: {recall:.0%}")
                         
 
-
+evaluation()
 
             
 
