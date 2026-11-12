@@ -30,3 +30,6 @@ rag-v2 = "rag_v2:main"
 [build-system]
 requires = ["uv_build>=0.12.13,<0.13.0"]
 build-backend = "uv_build"
+
+[tool.basedpyright]
+typeCheckingMode = "standard"

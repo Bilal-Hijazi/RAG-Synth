@@ -2,7 +2,7 @@
 
 People & Culture Department | Dubai, UAE
 
-EMPLOYEE HANDBOOK
+EMPLOYEE HANDBOOK 
 
 **People & Culture Handbook**
 
